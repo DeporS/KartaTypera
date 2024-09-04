@@ -38,7 +38,7 @@
     <!-- Display Validation Errors -->
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-            <strong class="font-bold">Whoops!</strong> There were some problems with your input.
+            <strong class="font-bold">Oooopa!</strong> Twoja karta posiada błędy! Popraw je:
             <ul class="mt-3 list-disc list-inside text-sm">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -263,13 +263,118 @@
                         <input type="hidden" name="bet1" id="bet1" value="">
                     </div>
                 </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet2" class="bet-button" onclick="selectBet('tak', 'bet2', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet2" class="bet-button ml-3" onclick="selectBet('nie', 'bet2', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet2" id="bet2" value="">
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet3" class="bet-button" onclick="selectBet('tak', 'bet3', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet3" class="bet-button ml-3" onclick="selectBet('nie', 'bet3', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet3" id="bet3" value="">
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet4" class="bet-button" onclick="selectBet('tak', 'bet4', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet4" class="bet-button ml-3" onclick="selectBet('nie', 'bet4', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet4" id="bet4" value="">
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet5" class="bet-button" onclick="selectBet('tak', 'bet5', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet5" class="bet-button ml-3" onclick="selectBet('nie', 'bet5', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet5" id="bet5" value="">
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet6" class="bet-button" onclick="selectBet('tak', 'bet6', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet6" class="bet-button ml-3" onclick="selectBet('nie', 'bet6', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet6" id="bet6" value="">
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet7" class="bet-button" onclick="selectBet('tak', 'bet7', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet7" class="bet-button ml-3" onclick="selectBet('nie', 'bet7', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet7" id="bet7" value="">
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-3">
+                    <div class="flex items-center">
+                        <x-input-label :value="__('Wybierz jeden')" class="text-center"/>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" id="yes_bet8" class="bet-button" onclick="selectBet('tak', 'bet8', this)">
+                            tak
+                        </button>
+                        <button type="button" id="no_bet8" class="bet-button ml-3" onclick="selectBet('nie', 'bet8', this)">
+                            nie
+                        </button>
+                        <!-- Ukryte pole input do przechowywania wybranej wartości -->
+                        <input type="hidden" name="bet8" id="bet8" value="">
+                    </div>
+                </div>
             </div>
 
 
             <!-- Przycisk wyslania -->
             <div class="flex items-center justify-center mt-6">
                 <x-primary-button class="ms-3" type="submit">
-                    {{ __('Wyślij') }}
+                    {{ __('Zapisz') }}
                 </x-primary-button>
             </div>
         </div>                            
