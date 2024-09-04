@@ -1,0 +1,28 @@
+# creating laravel project
+composer create-project laravel/laravel ddev-laravel && cd ddev-laravel
+
+# in ddev-laravel
+ddev config
+ddev start
+
+# w config.yaml 
+docroot: public
+
+# odpalenie phpmyadmin
+ddev phpmyadmin
+
+# haslo do admina
+depores1337@gmail.com
+!AdMiN1337#
+
+# nieadmin
+user@gmail.com
+!uSeR1337#
+
+# nieadmin 2
+depor@gmail.com
+!uSeR1337#
+
+# nieadmin 3
+plebcio@gmail.com
+!uSeR1337#
