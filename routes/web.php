@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/ranking', function () {
     return view('ranking');
-})->middleware(['auth', 'verified'])->name('ranking');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
