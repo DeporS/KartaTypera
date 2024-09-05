@@ -4,12 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\WeeklyPickTemplate;
+use App\Models\WeeklyBet;
 
 class WeeklyPickController extends Controller
 {
-    public function show(): View
-    {
-        return view('weeklyPick');
+    public function show()
+    {   
+        $id = 4;
+        
+        $weeklyPickTemplate = WeeklyPickTemplate::findOrFail($id);
+
+        $teams = json_decode($weeklyPickTemplate->teams, true);
+        $riders =json_decode($weeklyPickTemplate->riders, true);
+        $h2hs = json_decode($weeklyPickTemplate->h2hs, true);
+
+        $weeklyBets = WeeklyBet::where('weekly_pick_template_id', $id)->get();
+        $betTexts = [];
+        $oddYes = [];
+        $oddNo = [];
+
+        foreach ($weeklyBets as $bet) {
+            $betTexts[] = $bet->bet_text;
+            $oddYes[] = $bet->odd_yes;
+            $oddNo[] = $bet->odd_no;
+        }
+
+        return view('weeklyPick', [
+            'teams' => $teams,
+            'riders' => $riders,
+            'h2hs' => $h2hs,
+            'betText' => $betTexts,
+            'oddYes' => $oddYes,
+            'oddNo' => $oddNo,
+        ]);
     }
 
     public function store(Request $request) 

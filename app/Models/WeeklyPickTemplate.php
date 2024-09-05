@@ -9,6 +9,14 @@ class WeeklyPickTemplate extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'teams',
+        'riders',
+        'h2hs',
+        'week',
+        'closes_at',
+    ];
+
     public function weeklyBets(){
         return $this->hasMany(WeeklyBet::class);
     }
