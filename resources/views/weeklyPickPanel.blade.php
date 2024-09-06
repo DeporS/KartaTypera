@@ -51,8 +51,9 @@
 
             <!-- tydzien i zamkniecie -->
             <div class="flex items-center justify-center mt-3">
-                <x-input-label for="week" :value="__('Tydzień')" class="text-center"/>
-                <x-text-input type="number" step="1" name="week" id="week" value="{{ old('week') }}" required class="mt-2 text-center ml-3" style="width: 5rem;" />
+                <x-input-label for="week" :value="__('Tydzień ') . $week" class="text-center"/>
+                {{-- <x-text-input type="number" step="1" name="week" id="week" value="{{ old('week') }}" required class="mt-2 text-center ml-3" style="width: 5rem;" /> --}}
+                <input type="hidden" name="week" id="week" value={{ $week }}>
             </div>
             <div class="flex items-center justify-center mt-3">
                 <x-input-label for="time" :value="__('Zamyka się')" class="text-center"/>

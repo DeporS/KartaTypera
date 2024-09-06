@@ -68,10 +68,10 @@ class WeeklyPickOutcomeController extends Controller
         // tydzien
         $week = $request->input('week');
 
-        $exists = WeeklyPickOutcome::where('week', $week)->exists();
-        if ($exists){
-            return redirect()->back()->withErrors(['week_rep' => 'Wyniki wybranego tygodnia juz istnieją w bazie, możesz je edytować, lub usunąć'])->withInput();
-        }
+        // $exists = WeeklyPickOutcome::where('week', $week)->exists();
+        // if ($exists){
+        //     return redirect()->back()->withErrors(['week_rep' => 'Wyniki wybranego tygodnia juz istnieją w bazie, możesz je edytować, lub usunąć'])->withInput();
+        // }
 
         // template
         $weeklyPickTemplate = WeeklyPickTemplate::where('week', $week)->firstOrFail();
@@ -124,15 +124,18 @@ class WeeklyPickOutcomeController extends Controller
         }
 
 
-        // zapis do bazy
-        $weeklyPickOutcome = WeeklyPickOutcome::create([
-            'weekly_pick_template_id' => $weeklyPickTemplate->id,
-            'team_outcomes' => json_encode($result),
-            'rider_outcomes' => json_encode($scores),
-            'h2h_outcomes' => json_encode($h2hs),
-            'bet_outcomes' => json_encode($bets),
-            'week' => $week,
-        ]);
+        // zapis albo update bazy
+        $weeklyPickOutcome = WeeklyPickOutcome::updateOrCreate(
+            ['week' => $week], // Kryteria wyszukiwania
+            [ // Dane do zaktualizowania lub utworzenia
+                'weekly_pick_template_id' => $weeklyPickTemplate->id,
+                'team_outcomes' => json_encode($result),
+                'rider_outcomes' => json_encode($scores),
+                'h2h_outcomes' => json_encode($h2hs),
+                'bet_outcomes' => json_encode($bets),
+            ]
+        );
+
 
     }
 
@@ -190,8 +193,10 @@ class WeeklyPickOutcomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $week)
     {
-        //
+        WeeklyPickOutcome::where('week', $week)->delete();
+
+        return redirect()->route('weekly-pick-outcome.index')->with('success', 'Usunięto pomyślnie.');
     }
 }

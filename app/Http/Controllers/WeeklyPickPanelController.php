@@ -13,7 +13,12 @@ class WeeklyPickPanelController extends Controller
      */
     public function index()
     {
-        return view("weeklyPickPanel");
+        $templates = WeeklyPickTemplate::all();
+        
+
+        return view('weeklyPickPanelCenter', [
+            'templates' => $templates,
+        ]);
     }
 
     /**
@@ -36,6 +41,12 @@ class WeeklyPickPanelController extends Controller
 
         $week = $request->input("week");
 
+        // $exists = WeeklyPickOutcome::where('week', $week)->exists();
+        // if ($exists){
+        //     return redirect()->back()->withErrors(['week_rep' => 'Karta wybranego tygodnia juz istnieją w bazie, możesz je edytować, lub usunąć'])->withInput();
+        // }
+
+ 
         $date = $request->input("date");
         $time = $request->input("time");
         $closesAt = $date . ' ' . $time;
@@ -106,15 +117,17 @@ class WeeklyPickPanelController extends Controller
         }
 
 
-
+        return redirect()->route('weekly-pick-outcome.index')->with('success', 'Usunięto pomyślnie.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $week)
     {
-        //
+        return view('weeklyPickPanel', [
+            'week' => $week,
+        ]);
     }
 
     /**

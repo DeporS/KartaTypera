@@ -27,3 +27,26 @@ depor@gmail.com
 plebcio@gmail.com
 !uSeR1337#
 
+
+
+1 4 5 2 3 7 -1
+
+
+
+
+a=1 b=4   a=1 b=4   a=1 b=2   a=1 b=2   a=1 b=2   a=1
+a=4 b=5   a=4 b=2   a=2 b=3   a=2 b=3   a=2
+a=5 b=2   a=4 b=3   a=3 b=4   a=3 b=4
+a=5 b=3   a=4 b=5   a=4 b=5   a=4 
+a=5 b=7   a=5 b=7   a=5 b=7
+a=7 b=-1  a=7 b=-1  a=7 b=-1 
+
+
+
+5 2 1 4 8 -1
+
+a=5 b=2   a=2 b=1   a=1 b=2   a=1 b=2   a=1 b=2     1 2 4 5 8 -1 
+a=5 b=1   a=2 b=4   a=2 b=4   a=2 b=4   a=2 b=4
+a=5 b=4   a=4 b=5   a=4 b=5   a=4 b=5   a=4 b=5
+a=5 b=8   a=5 b=8   a=5 b=8   a=5 b=8   a=5 b=8
+a=8 b=-1  a=8 b=-1  a=8 b=-1  a=8 b=-1  a=8 b=-1
