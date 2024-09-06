@@ -59,5 +59,13 @@ class WeeklyPickController extends Controller
         if($request->input('away') != $sum_away){
             return redirect()->back()->withErrors(['away_total' => 'Suma punktów zawodników gości musi być równa twojej predykcji wyniku'])->withInput();
         }
+
+        if($request->input('bet_amount') > 10){
+            return redirect()->back()->withErrors(['bet_over' => 'Nie możesz obstawić więcej niż 10 pąktów'])->withInput();
+        }
+
+        if($request->input('bet_amount') < 0){
+            return redirect()->back()->withErrors(['bet_under' => 'Nie możesz obsawić mniej niż 0 pąktów'])->withInput();
+        }
     }
 }

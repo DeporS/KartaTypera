@@ -17,7 +17,7 @@
                     @if ($outcomes[$index] === "-")
                     <a href="{{ route('weekly-pick-outcome.show', ['weekly_pick_outcome' => $template->week]) }}">
                         <x-primary-button class="ms-3 mb-3">
-                            {{ __('Dodaj') }}
+                            {{ __('Dodaj Wyniki') }}
                         </x-primary-button>
                     </a>
                     @else 
