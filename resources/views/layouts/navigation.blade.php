@@ -22,6 +22,22 @@
                         {{ __('Karta Typera') }}
                     </x-nav-link>
                 </div>
+
+
+                <!-- admin -->
+                @if (Auth::user()->role === 'admin')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('weekly-pick-panel.index')" :active="request()->routeIs('weekly-pick-panel.index')">
+                            {{ __('Dodaj Kartę') }}
+                        </x-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('weekly-pick-outcome.index')" :active="request()->routeIs('weekly-pick-outcome.index')">
+                            {{ __('Wyniki kart') }}
+                        </x-nav-link>
+                    </div>
+                @endif
             </div>
 
 

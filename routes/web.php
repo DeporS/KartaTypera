@@ -5,6 +5,7 @@ use App\Http\Middleware\CheckAdmin;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WeeklyPickController;
 use App\Http\Controllers\WeeklyPickPanelController;
+use App\Http\Controllers\WeeklyPickOutcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,6 +20,8 @@ Route::get('/ranking', function () {
 // admin
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource("weekly-pick-panel", WeeklyPickPanelController::class);
+
+    Route::resource("weekly-pick-outcome", WeeklyPickOutcomeController::class);
 });
 
 
