@@ -470,8 +470,36 @@
         let maxBeigeBets = 1;
 
         const closesAt = '{{ $closes_at }}';
+        const bets = JSON.parse(@json($bets));
+        console.log(bets);
 
         document.getElementById('current_odd').textContent = currentOdd;
+
+        // na poczatku zaznaczenie poprawnych buttonow z bazy
+        function loadButtons(){
+            bets.forEach((element, index) => {
+                if(element === "tak"){
+                    document.getElementById("yes_bet" + (index + 1)).classList.add('selected-bet-button');
+                    
+                }else if(element === "nie"){
+                    document.getElementById("no_bet" + (index + 1)).classList.add('selected-bet-button');
+                    
+                }
+                if(element !== null){
+                    document.getElementById("bet" + (index + 1)).value = element;
+
+                    if(index < 5){
+                        purpleCount += 1;
+                    }else{
+                        beigeCount += 1;
+                    }
+                }
+                
+            });
+
+            console.log(beigeCount, purpleCount);
+            calculateOdd();
+        }
 
         function selectBet(value, inputId, color, button) {
 
@@ -597,6 +625,9 @@
         }
 
         const intervalId = setInterval(updateCountdown, 1000);
+
+        // zaladowanie zaznaczen buttonow
+        loadButtons();
 
         // Wywołaj raz, aby natychmiast pokazać odliczanie
         updateCountdown();

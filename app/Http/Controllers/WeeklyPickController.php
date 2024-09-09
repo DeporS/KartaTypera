@@ -48,7 +48,9 @@ class WeeklyPickController extends Controller
 
         $h2h_picks = null;
 
+        $bets = null;
         $bet_amount = null;
+
 
         $weeklyPick = WeeklyPick::where('user_id', Auth::id())
                         ->where('week', $week)
@@ -75,6 +77,7 @@ class WeeklyPickController extends Controller
 
             $bet = Bet::where('weekly_pick_id', $weeklyPick->id)->first();
             if ($bet) {
+                $bets = $bet->bets;
                 $bet_amount = $bet->bet_amount;
             }
             
@@ -97,6 +100,7 @@ class WeeklyPickController extends Controller
             'scores_captain' => $scores_captain,
             'h2h_picks' => $h2h_picks,
             'bet_amount' => $bet_amount,
+            'bets' => $bets,
         ]);
     }
 
