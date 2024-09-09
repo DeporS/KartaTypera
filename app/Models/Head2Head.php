@@ -9,6 +9,12 @@ class Head2Head extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'weekly_pick_id',
+        'points',
+        'picks',
+    ];
+
     public function weeklyPick()
     {
         return $this->belongsTo(WeeklyPick::class);
