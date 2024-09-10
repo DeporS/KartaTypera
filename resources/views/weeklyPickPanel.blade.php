@@ -57,8 +57,8 @@
             </div>
             <div class="flex items-center justify-center mt-3">
                 <x-input-label for="time" :value="__('Zamyka się')" class="text-center"/>
-                <x-text-input type="time" step="1" name="time" id="time" value="{{ old('time') }}" required class="mt-2 text-center ml-3" style="width: 8rem;" />
-                <x-text-input type="date" step="1" name="date" id="date" value="{{ old('date') }}" required class="mt-2 text-center ml-3" style="width: 8rem;" />
+                <x-text-input type="time" step="1" name="time" id="time" value="{{ old('time', $closesAtTime) }}" required class="mt-2 text-center ml-3" style="width: 8rem;" />
+                <x-text-input type="date" step="1" name="date" id="date" value="{{ old('date', $closesAtDate) }}" required class="mt-2 text-center ml-3" style="width: 10rem;" />
             </div>
 
             <!-- sekcja 1 -->
@@ -72,11 +72,11 @@
             <div class="flex items-center justify-center mb-6 gap-4 mt-3">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="home" :value="__('Zespół 1')" class="text-center"/>
-                    <x-text-input type="text" name="home" id="home" value="{{ old('home') }}" required class="mt-2 text-center" style="width: 12rem;" />
+                    <x-text-input type="text" name="home" id="home" value="{{ old('home', $teams[0]) }}" required class="mt-2 text-center" style="width: 12rem;" />
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="away" :value="__('Zespół 2')" class="text-center"/>
-                    <x-text-input type="text" name="away" id="away" value="{{ old('away') }}" required class="mt-2 text-center" style="width: 12rem;" />
+                    <x-text-input type="text" name="away" id="away" value="{{ old('away', $teams[1]) }}" required class="mt-2 text-center" style="width: 12rem;" />
                 </div>
             </div>
 
@@ -90,67 +90,67 @@
             <div class="flex items-center justify-center gap-4 mt-3">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="rider1a" :value="__('Zespół 1')" class="text-center"/>
-                    <x-text-input type="text" name="rider1a" id="rider1a" value="{{ old('rider1a') }}" required class="mt-2 text-center" style="width: 12rem;" placeholder="1."/>
+                    <x-text-input type="text" name="rider1a" id="rider1a" value="{{ old('rider1a', $riders[0]) }}" required class="mt-2 text-center" style="width: 12rem;" placeholder="1."/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="away" :value="__('Zespół 2')" class="text-center"/>
-                    <x-text-input type="text" name="rider1b" id="rider1b" value="{{ old('rider1b') }}" required class="mt-2 text-center" style="width: 12rem;" placeholder="1."/>
+                    <x-text-input type="text" name="rider1b" id="rider1b" value="{{ old('rider1b', $riders[8]) }}" required class="mt-2 text-center" style="width: 12rem;" placeholder="1."/>
                 </div>
             </div>
             <div class="flex items-center justify-center mt-2 gap-4">
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider2a" id="rider2a" value="{{ old('rider2a') }}" required class="text-center" style="width: 12rem;" placeholder="2."/>
+                    <x-text-input type="text" name="rider2a" id="rider2a" value="{{ old('rider2a', $riders[1]) }}" required class="text-center" style="width: 12rem;" placeholder="2."/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider2b" id="rider2b" value="{{ old('rider2b') }}" required class="text-center" style="width: 12rem;" placeholder="2."/>
-                </div>
-            </div>
-            <div class="flex items-center justify-center mt-2 gap-4">
-                <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider3a" id="rider3a" value="{{ old('rider3a') }}" required class="text-center" style="width: 12rem;" placeholder="3."/>
-                </div>
-                <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider3b" id="rider3b" value="{{ old('rider3b') }}" required class="text-center" style="width: 12rem;" placeholder="3."/>
+                    <x-text-input type="text" name="rider2b" id="rider2b" value="{{ old('rider2b', $riders[9]) }}" required class="text-center" style="width: 12rem;" placeholder="2."/>
                 </div>
             </div>
             <div class="flex items-center justify-center mt-2 gap-4">
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider4a" id="rider4a" value="{{ old('rider4a') }}" required class="text-center" style="width: 12rem;" placeholder="4."/>
+                    <x-text-input type="text" name="rider3a" id="rider3a" value="{{ old('rider3a', $riders[2]) }}" required class="text-center" style="width: 12rem;" placeholder="3."/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider4b" id="rider4b" value="{{ old('rider4b') }}" required class="text-center" style="width: 12rem;" placeholder="4."/>
-                </div>
-            </div>
-            <div class="flex items-center justify-center mt-2 gap-4">
-                <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider5a" id="rider5a" value="{{ old('rider5a') }}" required class="text-center" style="width: 12rem;" placeholder="5."/>
-                </div>
-                <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider5b" id="rider5b" value="{{ old('rider5b') }}" required class="text-center" style="width: 12rem;" placeholder="5."/>
+                    <x-text-input type="text" name="rider3b" id="rider3b" value="{{ old('rider3b', $riders[10]) }}" required class="text-center" style="width: 12rem;" placeholder="3."/>
                 </div>
             </div>
             <div class="flex items-center justify-center mt-2 gap-4">
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider6a" id="rider6a" value="{{ old('rider6a') }}" required class="text-center" style="width: 12rem;" placeholder="6."/>
+                    <x-text-input type="text" name="rider4a" id="rider4a" value="{{ old('rider4a', $riders[3]) }}" required class="text-center" style="width: 12rem;" placeholder="4."/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider6b" id="rider6b" value="{{ old('rider6b') }}" required class="text-center" style="width: 12rem;" placeholder="6."/>
-                </div>
-            </div>
-            <div class="flex items-center justify-center mt-2 gap-4">
-                <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider7a" id="rider7a" value="{{ old('rider7a') }}" required class="text-center" style="width: 12rem;" placeholder="7."/>
-                </div>
-                <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider7b" id="rider7b" value="{{ old('rider7b') }}" required class="text-center" style="width: 12rem;" placeholder="7."/>
+                    <x-text-input type="text" name="rider4b" id="rider4b" value="{{ old('rider4b', $riders[11]) }}" required class="text-center" style="width: 12rem;" placeholder="4."/>
                 </div>
             </div>
             <div class="flex items-center justify-center mt-2 gap-4">
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider8a" id="rider8a" value="{{ old('rider8a') }}" required class="text-center" style="width: 12rem;" placeholder="8."/>
+                    <x-text-input type="text" name="rider5a" id="rider5a" value="{{ old('rider5a', $riders[4]) }}" required class="text-center" style="width: 12rem;" placeholder="5."/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
-                    <x-text-input type="text" name="rider8b" id="rider8b" value="{{ old('rider8b') }}" required class="text-center" style="width: 12rem;" placeholder="8."/>
+                    <x-text-input type="text" name="rider5b" id="rider5b" value="{{ old('rider5b', $riders[12]) }}" required class="text-center" style="width: 12rem;" placeholder="5."/>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-2 gap-4">
+                <div class="w-1/3 flex flex-col items-center">
+                    <x-text-input type="text" name="rider6a" id="rider6a" value="{{ old('rider6a', $riders[5]) }}" required class="text-center" style="width: 12rem;" placeholder="6."/>
+                </div>
+                <div class="w-1/3 flex flex-col items-center">
+                    <x-text-input type="text" name="rider6b" id="rider6b" value="{{ old('rider6b', $riders[13]) }}" required class="text-center" style="width: 12rem;" placeholder="6."/>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-2 gap-4">
+                <div class="w-1/3 flex flex-col items-center">
+                    <x-text-input type="text" name="rider7a" id="rider7a" value="{{ old('rider7a', $riders[6]) }}" required class="text-center" style="width: 12rem;" placeholder="7."/>
+                </div>
+                <div class="w-1/3 flex flex-col items-center">
+                    <x-text-input type="text" name="rider7b" id="rider7b" value="{{ old('rider7b', $riders[14]) }}" required class="text-center" style="width: 12rem;" placeholder="7."/>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-2 gap-4">
+                <div class="w-1/3 flex flex-col items-center">
+                    <x-text-input type="text" name="rider8a" id="rider8a" value="{{ old('rider8a', $riders[7]) }}" required class="text-center" style="width: 12rem;" placeholder="8."/>
+                </div>
+                <div class="w-1/3 flex flex-col items-center">
+                    <x-text-input type="text" name="rider8b" id="rider8b" value="{{ old('rider8b', $riders[15]) }}" required class="text-center" style="width: 12rem;" placeholder="8."/>
                 </div>
             </div>
 

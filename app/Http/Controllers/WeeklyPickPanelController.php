@@ -125,8 +125,33 @@ class WeeklyPickPanelController extends Controller
      */
     public function show(string $week)
     {
+
+        $closesAtTime = null;
+        $closesAtDate = null;
+
+        $teams = null;
+
+        $riders = null;
+
+        $weeklyPickTemplate = WeeklyPickTemplate::where('week', $week)->first();
+
+        if ($weeklyPickTemplate) {
+            $timestamp = $weeklyPickTemplate->created_at;
+            $closesAtDate = $timestamp->format('Y-m-d');
+            $closesAtTime = $timestamp->format('H:i:s');
+
+            $teams = json_decode($weeklyPickTemplate->teams);
+
+            $riders = json_decode($weeklyPickTemplate->riders);
+        }
+
+
         return view('weeklyPickPanel', [
             'week' => $week,
+            'closesAtTime' => $closesAtTime,
+            'closesAtDate' => $closesAtDate,
+            'teams' => $teams,
+            'riders' => $riders,
         ]);
     }
 
