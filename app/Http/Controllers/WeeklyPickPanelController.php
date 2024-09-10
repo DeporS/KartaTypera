@@ -86,17 +86,22 @@ class WeeklyPickPanelController extends Controller
         }
 
         // template
-        $weeklyPickTemplate = WeeklyPickTemplate::create([
+        $weeklyPickTemplate = WeeklyPickTemplate::updateOrCreate([
+            'week' => $week,
+        ], 
+        [
             'teams' => json_encode($teams),
             'riders' => json_encode($riders),
             'h2hs' => json_encode($head2head),
-            'week' => $week,
             'closes_at' => $closesAt,
         ]);
 
         // bety fioletowe
         for ($i = 1; $i <=5; $i++){
-            WeeklyBet::create([
+            WeeklyBet::updateOrCreate([
+                'id' => $request->input("bet_id{$i}")
+            ],
+            [
                 'weekly_pick_template_id' => $weeklyPickTemplate->id,
                 'bet_text' => $request->input("bet{$i}"),
                 'odd_yes' => $request->input("odd{$i}a"),
@@ -107,7 +112,10 @@ class WeeklyPickPanelController extends Controller
         
         // bety bezowe
         for ($i = 6; $i <=8; $i++){
-            WeeklyBet::create([
+            WeeklyBet::updateOrCreate([
+                'id' => $request->input("bet_id{$i}")
+            ],
+            [
                 'weekly_pick_template_id' => $weeklyPickTemplate->id,
                 'bet_text' => $request->input("bet{$i}"),
                 'odd_yes' => $request->input("odd{$i}a"),
@@ -133,16 +141,45 @@ class WeeklyPickPanelController extends Controller
 
         $riders = null;
 
+        $h2h_names = null;
+
+        $bets = null;
+        $bet_ids = null;
+        $odds_yes = null;
+        $odds_no = null;
+
+        // odczytanie pierwszego rekordu z bazy
         $weeklyPickTemplate = WeeklyPickTemplate::where('week', $week)->first();
 
+        // jesli istnieje odczytanie wartosci rekordu
         if ($weeklyPickTemplate) {
             $timestamp = $weeklyPickTemplate->created_at;
-            $closesAtDate = $timestamp->format('Y-m-d');
+
             $closesAtTime = $timestamp->format('H:i:s');
+            $closesAtDate = $timestamp->format('Y-m-d');
 
             $teams = json_decode($weeklyPickTemplate->teams);
 
             $riders = json_decode($weeklyPickTemplate->riders);
+
+            $h2hs = json_decode($weeklyPickTemplate->h2hs);
+            for ($i = 0; $i < 10; $i++) {
+                for ($j = 0; $j < 16; $j++) {
+                    if ($riders[$j] == $h2hs[$i]) {
+                        $h2h_names[] = $j;
+                        break;
+                    }
+                }
+            }
+
+            $weeklyBets = WeeklyBet::where('weekly_pick_template_id', $weeklyPickTemplate->id)->orderBy('id')->get();
+
+            if ($weeklyBets->isNotEmpty()) {
+                $bet_ids = $weeklyBets->pluck('id');
+                $bets = $weeklyBets->pluck('bet_text');
+                $odds_yes = $weeklyBets->pluck('odd_yes');
+                $odds_no = $weeklyBets->pluck('odd_no');
+            }
         }
 
 
@@ -152,8 +189,14 @@ class WeeklyPickPanelController extends Controller
             'closesAtDate' => $closesAtDate,
             'teams' => $teams,
             'riders' => $riders,
+            'h2h_names' => $h2h_names,
+            'bet_ids' => $bet_ids,
+            'bets' => $bets,
+            'odds_yes' => $odds_yes,
+            'odds_no' => $odds_no,
         ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -168,17 +168,33 @@
             <div class="flex items-center justify-center gap-4">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head1a" :value="__('Zespół 1')" class="text-center"/>
-                    <select id="head2head1a" required value="{{ old('head2head1a') }}" name="head2head1a">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head1a" name="head2head1a" required>
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head1a', ($h2h_names[0] + 1));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head1b" :value="__('Zespół 2')" class="text-center"/>
-                    <select id="head2head1b" required value="{{ old('head2head1b') }}" name="head2head1b">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head1b" required name="head2head1b">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head1b', ($h2h_names[5] - 7));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
@@ -189,17 +205,33 @@
             <div class="flex items-center justify-center gap-4">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head2a" :value="__('Zespół 1')" class="text-center"/>
-                    <select id="head2head2a" required value="{{ old('head2head2a') }}" name="head2head2a">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head2a" required name="head2head2a">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head1a', ($h2h_names[1] + 1));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head2b" :value="__('Zespół 2')" class="text-center"/>
-                    <select id="head2head2b" required value="{{ old('head2head2b') }}" name="head2head2b">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head2b" required name="head2head2b">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head2b', ($h2h_names[6] - 7));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
@@ -210,17 +242,33 @@
             <div class="flex items-center justify-center gap-4">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head3a" :value="__('Zespół 1')" class="text-center"/>
-                    <select id="head2head3a" required value="{{ old('head2head3a') }}" name="head2head3a">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head3a" required name="head2head3a">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head3a', ($h2h_names[2] + 1));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head3b" :value="__('Zespół 2')" class="text-center"/>
-                    <select id="head2head3b" required value="{{ old('head2head3b') }}" name="head2head3b">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head3b" required name="head2head3b">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head3b', ($h2h_names[7] - 7));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
@@ -231,17 +279,33 @@
             <div class="flex items-center justify-center gap-4">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head4a" :value="__('Zespół 1')" class="text-center"/>
-                    <select id="head2head4a" required value="{{ old('head2head4a') }}" name="head2head4a">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head4a" required name="head2head4a">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head4a', ($h2h_names[3] + 1));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head4b" :value="__('Zespół 2')" class="text-center"/>
-                    <select id="head2head4b" required value="{{ old('head2head4b') }}" name="head2head4b">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head4b" required name="head2head4b">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head4b', ($h2h_names[8] - 7));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
@@ -252,17 +316,33 @@
             <div class="flex items-center justify-center gap-4">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head5a" :value="__('Zespół 1')" class="text-center"/>
-                    <select id="head2head5a" required value="{{ old('head2head5a') }}" name="head2head5a">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head5a" required name="head2head5a">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head5a', ($h2h_names[4] + 1));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="head2head5b" :value="__('Zespół 2')" class="text-center"/>
-                    <select id="head2head5b" required value="{{ old('head2head5b') }}" name="head2head5b">
-                        <?php for($i = 1; $i <= 8; $i++): ?>
-                            <option value ="<?= $i ?>"><?= $i ?></option>
+                    <select id="head2head5b" required name="head2head5b">
+                        <?php 
+                            // Zmienna domyślna
+                            $selected = old('head2head5b', ($h2h_names[9] - 7));
+                            
+                            // Wypisanie opcji
+                            for ($i = 1; $i <= 8; $i++): 
+                                // Ustawienie wybranej opcji
+                                $isSelected = ($i == $selected) ? 'selected' : '';
+                        ?>
+                            <option value="<?= $i ?>" <?= $isSelected ?>><?= $i ?></option>
                         <?php endfor; ?> 
                     </select>
                 </div>
@@ -279,99 +359,107 @@
             <!-- fioletowe -->
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-purple">1.</strong>
-                <textarea type="text" name="bet1" id="bet1" value="{{ old('bet1') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet1" id="bet1" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet1', $bets[0]) }}</textarea>
+                <input type="hidden" name="bet_id1" value="{{ $bet_ids[0] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd1a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd1a" id="odd1a" value="{{ old('odd1a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd1a" id="odd1a" value="{{ old('odd1a', $odds_yes[0]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd1b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd1b" id="odd1b" value="{{ old('odd1b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd1b" id="odd1b" value="{{ old('odd1b', $odds_no[0]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-purple">2.</strong>
-                <textarea type="text" name="bet2" id="bet2" value="{{ old('bet2') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet2" id="bet2" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet2', $bets[1]) }}</textarea>
+                <input type="hidden" name="bet_id2" value="{{ $bet_ids[1] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd2a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd2a" id="odd2a" value="{{ old('odd2a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd2a" id="odd2a" value="{{ old('odd2a', $odds_yes[1]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd2b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd2b" id="odd2b" value="{{ old('odd2b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd2b" id="odd2b" value="{{ old('odd2b', $odds_no[1]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-purple">3.</strong>
-                <textarea type="text" name="bet3" id="bet3" value="{{ old('bet3') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet3" id="bet3" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet3', $bets[2]) }}</textarea>
+                <input type="hidden" name="bet_id3" value="{{ $bet_ids[2] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd3a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd3a" id="odd3a" value="{{ old('odd3a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd3a" id="odd3a" value="{{ old('odd3a', $odds_yes[2]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd3b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd3b" id="odd3b" value="{{ old('odd3b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd3b" id="odd3b" value="{{ old('odd3b', $odds_no[2]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-purple">4.</strong>
-                <textarea type="text" name="bet4" id="bet4" value="{{ old('bet4') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet4" id="bet4" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet4', $bets[3]) }}</textarea>
+                <input type="hidden" name="bet_id4" value="{{ $bet_ids[3] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd4a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd4a" id="odd4a" value="{{ old('odd4a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd4a" id="odd4a" value="{{ old('odd4a', $odds_yes[3]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd4b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd4b" id="odd4b" value="{{ old('odd4b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd4b" id="odd4b" value="{{ old('odd4b', $odds_no[3]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-purple">5.</strong>
-                <textarea type="text" name="bet5" id="bet5" value="{{ old('bet5') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet5" id="bet5" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet5', $bets[4]) }}</textarea>
+                <input type="hidden" name="bet_id5" value="{{ $bet_ids[4] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd5a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd5a" id="odd5a" value="{{ old('odd5a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd5a" id="odd5a" value="{{ old('odd5a', $odds_yes[4]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd5b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd5b" id="odd5b" value="{{ old('odd5b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd5b" id="odd5b" value="{{ old('odd5b', $odds_no[4]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <!-- bezowe -->
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-beige">6.</strong>
-                <textarea type="text" name="bet6" id="bet6" value="{{ old('bet6') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet6" id="bet6" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet6', $bets[5]) }}</textarea>
+                <input type="hidden" name="bet_id6" value="{{ $bet_ids[5] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd6a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd6a" id="odd6a" value="{{ old('odd6a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd6a" id="odd6a" value="{{ old('odd6a', $odds_yes[5]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd6b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd6b" id="odd6b" value="{{ old('odd6b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd6b" id="odd6b" value="{{ old('odd6b', $odds_no[5]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-beige">7.</strong>
-                <textarea type="text" name="bet7" id="bet7" value="{{ old('bet7') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet7" id="bet7" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet7', $bets[6]) }}</textarea>
+                <input type="hidden" name="bet_id7" value="{{ $bet_ids[6] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd7a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd7a" id="odd7a" value="{{ old('odd7a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd7a" id="odd7a" value="{{ old('odd7a', $odds_yes[6]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd7b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd7b" id="odd7b" value="{{ old('odd7b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd7b" id="odd7b" value="{{ old('odd7b', $odds_no[6]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
             <div class="flex items-center justify-center gap-4 mt-3">
                 <strong class="bet bet-beige">8.</strong>
-                <textarea type="text" name="bet8" id="bet8" value="{{ old('bet8') }}" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu"></textarea>
+                <textarea type="text" name="bet8" id="bet8" required class="mt-2 block" style="width: 25rem; height: 6rem;" placeholder="treść zakładu">{{ old('bet8', $bets[7]) }}</textarea>
+                <input type="hidden" name="bet_id8" value="{{ $bet_ids[7] }}">
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd8a" :value="__('Kurs tak')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd8a" id="odd8a" value="{{ old('odd8a') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd8a" id="odd8a" value="{{ old('odd8a', $odds_yes[7]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
                 <div class="w-1/3 flex flex-col items-center">
                     <x-input-label for="odd8b" :value="__('Kurs nie')" class="text-center"/>
-                    <x-text-input type="number" step="0.01" name="odd8b" id="odd8b" value="{{ old('odd8b') }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
+                    <x-text-input type="number" step="0.01" name="odd8b" id="odd8b" value="{{ old('odd8b', $odds_no[7]) }}" required class="mt-2 text-center" style="width: 5rem;" placeholder="1.85"/>
                 </div>
             </div>
 
@@ -383,4 +471,8 @@
             </div>
         </div>
     </form>
+    <script>
+        var h2hNames = <?php echo json_encode($bets); ?>;
+        console.log(h2hNames);
+    </script>
 </x-app-layout>
