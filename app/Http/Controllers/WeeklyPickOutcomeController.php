@@ -124,6 +124,7 @@ class WeeklyPickOutcomeController extends Controller
         }
 
 
+
         // zapis albo update bazy
         $weeklyPickOutcome = WeeklyPickOutcome::updateOrCreate(
             ['week' => $week], // Kryteria wyszukiwania
@@ -163,6 +164,21 @@ class WeeklyPickOutcomeController extends Controller
             $oddNo[] = $bet->odd_no;
         }
 
+        // wczytanie do edycji
+        $result = null;
+        $scores = null;
+        $h2h_outcomes = null;
+        $bets = null;
+
+        $weeklyPickOutcome = WeeklyPickOutcome::where('weekly_pick_template_id', $weeklyPickTemplate->id)->first();
+
+        if ($weeklyPickOutcome) {
+            $result = json_decode($weeklyPickOutcome->team_outcomes);
+            $scores = json_decode($weeklyPickOutcome->rider_outcomes);
+            $h2h_outcomes = json_decode($weeklyPickOutcome->h2h_outcomes);
+            $bets = $weeklyPickOutcome->bet_outcomes;
+        }
+
         return view('weeklyPickOutcome', [
             'week' => $week,
             'teams' => $teams,
@@ -171,6 +187,10 @@ class WeeklyPickOutcomeController extends Controller
             'betText' => $betTexts,
             'oddYes' => $oddYes,
             'oddNo' => $oddNo,
+            'result' => $result,
+            'scores' => $scores,
+            'h2h_outcomes' => $h2h_outcomes,
+            'bets' => $bets,
         ]);
     }
 
