@@ -318,7 +318,7 @@ class WeeklyPickOutcomeController extends Controller
             ]
         );
 
-
+        return redirect()->route('weekly-pick-outcome.index')->with('success', 'Dodano/zmieniono pomyślnie.');
     }
 
     /**

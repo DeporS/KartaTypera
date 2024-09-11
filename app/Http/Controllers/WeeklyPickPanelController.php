@@ -219,6 +219,8 @@ class WeeklyPickPanelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        WeeklyPickTemplate::where('week', $week)->delete();
+
+        return redirect()->route('weekly-pick-panel.index')->with('success', 'Usunięto pomyślnie.');
     }
 }
