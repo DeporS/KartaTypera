@@ -14,7 +14,7 @@ class Bet extends Model
         'points',
         'bets',
         'bet_amount',
-        'win_amount',
+        'odds',
     ];
 
     public function weeklyPick()

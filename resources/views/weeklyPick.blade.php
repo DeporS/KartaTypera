@@ -325,14 +325,15 @@
                             <x-input-label :value="$betText[0]" class="text-center bet bet-purple" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet1" class="bet-button" onclick="selectBet('tak', 'bet1', 'purple', this)" style="width: 100px">
+                            <button type="button" id="yes_bet1" class="bet-button" onclick="selectBet('tak', 'bet1', 'oddBet1', 'purple', this, '{{ $oddYes[0] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[0] }} 
                             </button>
-                            <button type="button" id="no_bet1" class="bet-button ml-3" onclick="selectBet('nie', 'bet1', 'purple', this)" style="width: 100px">
+                            <button type="button" id="no_bet1" class="bet-button ml-3" onclick="selectBet('nie', 'bet1', 'oddBet1', 'purple', this, '{{ $oddNo[0] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[0] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet1" id="bet1" value="">
+                            <input type="hidden" name="oddBet1" id="oddBet1" value="">
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6 mt-3">
@@ -340,14 +341,15 @@
                             <x-input-label :value="$betText[1]" class="text-center bet bet-purple" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet2" class="bet-button" onclick="selectBet('tak', 'bet2', 'purple', this)" style="width: 100px">
+                            <button type="button" id="yes_bet2" class="bet-button" onclick="selectBet('tak', 'bet2', 'oddBet2', 'purple', this, '{{ $oddYes[1] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[1] }} 
                             </button>
-                            <button type="button" id="no_bet2" class="bet-button ml-3" onclick="selectBet('nie', 'bet2', 'purple', this)" style="width: 100px">
+                            <button type="button" id="no_bet2" class="bet-button ml-3" onclick="selectBet('nie', 'bet2', 'oddBet2', 'purple', this, '{{ $oddNo[1] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[1] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet2" id="bet2" value="">
+                            <input type="hidden" name="oddBet2" id="oddBet2" value="">
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6 mt-3">
@@ -355,14 +357,15 @@
                             <x-input-label :value="$betText[2]" class="text-center bet bet-purple" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet3" class="bet-button" onclick="selectBet('tak', 'bet3', 'purple', this)" style="width: 100px">
+                            <button type="button" id="yes_bet3" class="bet-button" onclick="selectBet('tak', 'bet3', 'oddBet3', 'purple', this, '{{ $oddYes[2] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[2] }} 
                             </button>
-                            <button type="button" id="no_bet3" class="bet-button ml-3" onclick="selectBet('nie', 'bet3', 'purple', this)" style="width: 100px">
+                            <button type="button" id="no_bet3" class="bet-button ml-3" onclick="selectBet('nie', 'bet3', 'oddBet3', 'purple', this, '{{ $oddNo[2] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[2] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet3" id="bet3" value="">
+                            <input type="hidden" name="oddBet3" id="oddBet3" value="">
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6 mt-3">
@@ -370,14 +373,15 @@
                             <x-input-label :value="$betText[3]" class="text-center bet bet-purple" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet4" class="bet-button" onclick="selectBet('tak', 'bet4', 'purple', this)" style="width: 100px">
+                            <button type="button" id="yes_bet4" class="bet-button" onclick="selectBet('tak', 'bet4', 'oddBet4', 'purple', this, '{{ $oddYes[3] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[3] }}  
                             </button>
-                            <button type="button" id="no_bet4" class="bet-button ml-3" onclick="selectBet('nie', 'bet4', 'purple', this)" style="width: 100px">
+                            <button type="button" id="no_bet4" class="bet-button ml-3" onclick="selectBet('nie', 'bet4', 'oddBet4', 'purple', this, '{{ $oddNo[3] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[3] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet4" id="bet4" value="">
+                            <input type="hidden" name="oddBet4" id="oddBet4" value="">
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6 mt-3">
@@ -385,14 +389,15 @@
                             <x-input-label :value="$betText[4]" class="text-center bet bet-purple" style="width: 400px; word-wrap: break-word; white-space: normal;" />
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet5" class="bet-button" onclick="selectBet('tak', 'bet5', 'purple', this)" style="width: 100px">
+                            <button type="button" id="yes_bet5" class="bet-button" onclick="selectBet('tak', 'bet5', 'oddBet5', 'purple', this, '{{ $oddYes[4] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[4] }}  
                             </button>
-                            <button type="button" id="no_bet5" class="bet-button ml-3" onclick="selectBet('nie', 'bet5', 'purple', this)" style="width: 100px">
+                            <button type="button" id="no_bet5" class="bet-button ml-3" onclick="selectBet('nie', 'bet5', 'oddBet5', 'purple', this, '{{ $oddNo[4] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[4] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet5" id="bet5" value="">
+                            <input type="hidden" name="oddBet5" id="oddBet5" value="">
                         </div>
                     </div>
 
@@ -402,14 +407,15 @@
                             <x-input-label :value="$betText[5]" class="text-center bet bet-beige" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet6" class="bet-button" onclick="selectBet('tak', 'bet6', 'beige', this)" style="width: 100px">
+                            <button type="button" id="yes_bet6" class="bet-button" onclick="selectBet('tak', 'bet6', 'oddBet6', 'beige', this, '{{ $oddYes[5] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[5] }} 
                             </button>
-                            <button type="button" id="no_bet6" class="bet-button ml-3" onclick="selectBet('nie', 'bet6', 'beige', this)" style="width: 100px">
+                            <button type="button" id="no_bet6" class="bet-button ml-3" onclick="selectBet('nie', 'bet6', 'oddBet6', 'beige', this, '{{ $oddNo[5] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[5] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet6" id="bet6" value="">
+                            <input type="hidden" name="oddBet6" id="oddBet6" value="">
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6 mt-3">
@@ -417,14 +423,15 @@
                             <x-input-label :value="$betText[6]" class="text-center bet bet-beige" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet7" class="bet-button" onclick="selectBet('tak', 'bet7', 'beige', this)" style="width: 100px">
+                            <button type="button" id="yes_bet7" class="bet-button" onclick="selectBet('tak', 'bet7', 'oddBet7', 'beige', this, '{{ $oddYes[6] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[6] }} 
                             </button>
-                            <button type="button" id="no_bet7" class="bet-button ml-3" onclick="selectBet('nie', 'bet7', 'beige', this)" style="width: 100px">
+                            <button type="button" id="no_bet7" class="bet-button ml-3" onclick="selectBet('nie', 'bet7', 'oddBet7', 'beige', this, '{{ $oddNo[6] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[6] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet7" id="bet7" value="">
+                            <input type="hidden" name="oddBet7" id="oddBet7" value="">
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6 mt-3">
@@ -432,14 +439,15 @@
                             <x-input-label :value="$betText[7]" class="text-center bet bet-beige" style="width: 400px; word-wrap: break-word; white-space: normal;"/>
                         </div>
                         <div class="flex items-center">
-                            <button type="button" id="yes_bet8" class="bet-button" onclick="selectBet('tak', 'bet8', 'beige', this)" style="width: 100px">
+                            <button type="button" id="yes_bet8" class="bet-button" onclick="selectBet('tak', 'bet8', 'oddBet8', 'beige', this, '{{ $oddYes[7] }}')" style="width: 100px">
                                 <strong>tak</strong> x{{ $oddYes[7] }} 
                             </button>
-                            <button type="button" id="no_bet8" class="bet-button ml-3" onclick="selectBet('nie', 'bet8', 'beige', this)" style="width: 100px">
+                            <button type="button" id="no_bet8" class="bet-button ml-3" onclick="selectBet('nie', 'bet8', 'oddBet8', 'beige', this, '{{ $oddNo[7] }}')" style="width: 100px">
                                 <strong>nie</strong> x{{ $oddNo[7] }}
                             </button>
                             <!-- Ukryte pole input do przechowywania wybranej wartości -->
                             <input type="hidden" name="bet8" id="bet8" value="">
+                            <input type="hidden" name="oddBet8" id="oddBet8" value="">
                         </div>
                     </div>
                 </div>
@@ -471,7 +479,8 @@
 
         const closesAt = '{{ $closes_at }}';
         const bets = JSON.parse(@json($bets));
-        console.log(bets);
+        const odds = JSON.parse(@json($odds));
+        //console.log(bets);
 
         document.getElementById('current_odd').textContent = currentOdd;
 
@@ -497,19 +506,27 @@
                 
             });
 
-            console.log(beigeCount, purpleCount);
+            odds.forEach((element, index) => {
+                if(element !== null) {
+                    document.getElementById("oddBet" + (index + 1)).value = element;
+                }
+            });
+
+            //console.log(beigeCount, purpleCount);
             calculateOdd();
         }
 
-        function selectBet(value, inputId, color, button) {
+        function selectBet(value, inputId, oddInput, color, button, odd) {
 
             // Znajdź ukryte pole input
             let input = document.getElementById(inputId);
+            let oddInp = document.getElementById(oddInput);
         
             // Jeśli przycisk jest już wybrany, odznacz go
             if (button.classList.contains('selected-bet-button')) {
                 button.classList.remove('selected-bet-button');
                 input.value = ''; // Wyczyść wartość w ukrytym polu input
+                oddInp.value = '';
                 if (color == 'beige'){
                     beigeCount -= 1;
                 }else{
@@ -544,6 +561,8 @@
         
                 // Ustaw wartość w ukrytym polu input
                 input.value = value;
+                oddInp.value = odd;
+                console.log(oddInp.value);
                 // currentOdd = currentOdd * odd;
 
                 if (color == 'beige'){

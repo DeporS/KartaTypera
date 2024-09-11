@@ -59,9 +59,12 @@ class WeeklyPickOutcomeController extends Controller
     {
         $userPicks = WeeklyPick::where('week', $weeklyPickTemplate->week)->get();
 
+        $finalPoints;
+
         // obliczanie punktow dla danego gracza
         foreach ($userPicks as $pick) {
             // obliczenie punktow z wyniku
+            $finalPoints = 0;
             $points = 0;
             // pobranie rekordu z wynikiem
             $resultPick = Result::where("weekly_pick_id", $pick->id)->first();
@@ -83,6 +86,8 @@ class WeeklyPickOutcomeController extends Controller
             } 
             // zapis punktow z wyniku
             $resultPick->update(['points' => $points]);
+
+            $finalPoints += $points;
 
 
             // obliczanie punktow z wyniku driverow
@@ -133,10 +138,12 @@ class WeeklyPickOutcomeController extends Controller
             // zapis punktow z driverow
             $scorePick->update(['points' => $points]);
 
+            $finalPoints += $points;
+
 
             // obliczanie punktow z h2h
             $points = 0;
-            
+
             // pobranie rekordu z h2h
             $h2hPick = Head2Head::where("weekly_pick_id", $pick->id)->first();
             if ($h2hPick) {
@@ -148,7 +155,7 @@ class WeeklyPickOutcomeController extends Controller
 
                 // przejscie przez wszystkie wyniki
                 foreach ($picks as $index => $h2hpick) {
-                    if ($picks[$index] == $h2hs[$index]) {
+                    if ($h2hpick == $h2hs[$index]) {
                         $correct_counter += 1;
                         $points += 5;
                     }
@@ -163,7 +170,44 @@ class WeeklyPickOutcomeController extends Controller
             // zapis punktow z h2h
             $h2hPick->update(['points' => $points]);
 
-            //$pick->update(['points' => $points]);
+            $finalPoints += $points;
+
+
+            // obliczanie punktow z betow
+            $points = 0;
+
+            // pobranie rekordu z betami
+            $betPick = Bet::where("weekly_pick_id", $pick->id)->first();
+            if ($betPick) {
+                // pobranie predykcji gracza
+                $playerBets = json_decode($betPick->bets);
+                $betOdds = json_decode($betPick->odds);
+
+                $current_multi = 1;
+
+                foreach ($playerBets as $index => $one_bet) {
+                    if ($one_bet == $bets[$index]){
+                        $current_multi *= floatval($betOdds[$index]);
+                    }
+                    else if ($bets[$index] == '-' || $one_bet == null) {
+                        $current_multi *= 1;
+                    }
+                    else {
+                        $current_multi = -1;
+                        break;
+                    }
+                }
+
+                $points = $betPick->bet_amount * $current_multi;
+            }
+
+            $betPick->update(['points' => $points]);
+
+
+            $finalPoints += $points;
+
+
+            $pick->update(['points' => $finalPoints]);
         }
     }
 

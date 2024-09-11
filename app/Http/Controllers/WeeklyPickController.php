@@ -50,6 +50,7 @@ class WeeklyPickController extends Controller
 
         $bets = null;
         $bet_amount = null;
+        $odds = null;
 
 
         $weeklyPick = WeeklyPick::where('user_id', Auth::id())
@@ -79,6 +80,7 @@ class WeeklyPickController extends Controller
             if ($bet) {
                 $bets = $bet->bets;
                 $bet_amount = $bet->bet_amount;
+                $odds = $bet->odds;
             }
             
         }
@@ -101,6 +103,7 @@ class WeeklyPickController extends Controller
             'h2h_picks' => $h2h_picks,
             'bet_amount' => $bet_amount,
             'bets' => $bets,
+            'odds' => $odds,
         ]);
     }
 
@@ -179,6 +182,9 @@ class WeeklyPickController extends Controller
         [
             'bets' => json_encode(collect(range(1,8))->map(function ($i) use ($request){
                 return $request->input('bet' . $i);
+            })),
+            'odds' => json_encode(collect(range(1,8))->map(function ($i) use ($request){
+                return $request->input('oddBet' . $i);
             })),
             'bet_amount' => $request->input('bet_amount'),
         ]);
