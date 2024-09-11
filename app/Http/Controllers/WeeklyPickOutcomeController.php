@@ -212,7 +212,7 @@ class WeeklyPickOutcomeController extends Controller
 
             $userPoints = $user->points - $pick->points;
             
-            $userPoints += $userPoints + $finalPoints;
+            $userPoints += $finalPoints;
 
             $user->update(['points' => $userPoints]);
 

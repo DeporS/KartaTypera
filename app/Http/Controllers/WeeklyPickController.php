@@ -17,7 +17,7 @@ class WeeklyPickController extends Controller
 {
     public function show()
     {   
-        $id = 4;
+        $id = 5;
         
         $weeklyPickTemplate = WeeklyPickTemplate::findOrFail($id);
 
