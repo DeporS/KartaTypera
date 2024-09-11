@@ -8,7 +8,7 @@ use App\Models\WeeklyPickTemplate;
 use App\Models\WeeklyPickOutcome;
 use App\Models\WeeklyBet;
 use App\Models\WeeklyPick;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Bet;
 use App\Models\Head2Head;
 use App\Models\Result;
@@ -206,9 +206,20 @@ class WeeklyPickOutcomeController extends Controller
 
             $finalPoints += $points;
 
+            // aktualizacja punktow usera, odjecie starych i dodanie nowych
+            $user = User::where("id", $pick->user_id)->first();
+            // $user->points -= $pick->points; 
+
+            $userPoints = $user->points - $pick->points;
+            
+            $userPoints += $userPoints + $finalPoints;
+
+            $user->update(['points' => $userPoints]);
 
             $pick->update(['points' => $finalPoints]);
         }
+
+        
     }
 
     /**

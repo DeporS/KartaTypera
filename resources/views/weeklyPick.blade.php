@@ -130,13 +130,13 @@
                             <input type="radio" id="home1" name="match" class="form-radio" title="Kapitan" value="1"
                             {{ old('match', $scores_captain) == '1' ? 'checked' : '' }} required>
                             <x-input-label for="home1" :value="$riders[0]" class="text-center ml-3" />
-                            <x-text-input type="number" step="1" name="home1" id="home1" value="{{ old('home1', $scores_home[0]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home1" id="home1" value="{{ old('home1', $scores_home[0] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away1" name="match" class="form-radio" title="Kapitan" value="9"
                             {{ old('match', $scores_captain) == '9' ? 'checked' : '' }} required>
                             <x-input-label for="away1" :value="$riders[8]" class="text-center  ml-3"/>
-                            <x-text-input type="number" step="1" name="away1" id="away1" value="{{ old('away1', $scores_away[0]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away1" id="away1" value="{{ old('away1', $scores_away[0] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -144,13 +144,13 @@
                             <input type="radio" id="home2" name="match" class="form-radio" title="Kapitan" value="2"
                             {{ old('match', $scores_captain) == '2' ? 'checked' : '' }} required>
                             <x-input-label for="home2" :value="$riders[1]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home2" id="home2" value="{{ old('home2', $scores_home[1]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home2" id="home2" value="{{ old('home2', $scores_home[1] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away2" name="match" class="form-radio" title="Kapitan" value="10"
                             {{ old('match', $scores_captain) == '10' ? 'checked' : '' }} required>
                             <x-input-label for="away2" :value="$riders[9]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away2" id="away2" value="{{ old('away2', $scores_away[1]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away2" id="away2" value="{{ old('away2', $scores_away[1] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -158,13 +158,13 @@
                             <input type="radio" id="home3" name="match" class="form-radio" title="Kapitan" value="3"
                             {{ old('match', $scores_captain) == '3' ? 'checked' : '' }} required>
                             <x-input-label for="home3" :value="$riders[2]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home3" id="home3" value="{{ old('home3', $scores_home[2]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home3" id="home3" value="{{ old('home3', $scores_home[2] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away3" name="match" class="form-radio" title="Kapitan" value="11"
                             {{ old('match', $scores_captain) == '11' ? 'checked' : '' }} required>
                             <x-input-label for="away3" :value="$riders[10]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away3" id="away3" value="{{ old('away3', $scores_away[2]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away3" id="away3" value="{{ old('away3', $scores_away[2] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -172,13 +172,13 @@
                             <input type="radio" id="home4" name="match" class="form-radio" title="Kapitan" value="4"
                             {{ old('match', $scores_captain) == '4' ? 'checked' : '' }} required>
                             <x-input-label for="home4" :value="$riders[3]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home4" id="home4" value="{{ old('home4', $scores_home[3]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home4" id="home4" value="{{ old('home4', $scores_home[3] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away4" name="match" class="form-radio" title="Kapitan" value="12"
                             {{ old('match', $scores_captain) == '12' ? 'checked' : '' }} required>
                             <x-input-label for="away4" :value="$riders[11]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away4" id="away4" value="{{ old('away4', $scores_away[3]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away4" id="away4" value="{{ old('away4', $scores_away[3] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -186,13 +186,13 @@
                             <input type="radio" id="home5" name="match" class="form-radio" title="Kapitan" value="5"
                             {{ old('match', $scores_captain) == '5' ? 'checked' : '' }} required>
                             <x-input-label for="home5" :value="$riders[4]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home5" id="home5" value="{{ old('home5', $scores_home[4]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home5" id="home5" value="{{ old('home5', $scores_home[4] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away5" name="match" class="form-radio" title="Kapitan" value="13"
                             {{ old('match', $scores_captain) == '13' ? 'checked' : '' }} required>
                             <x-input-label for="away5" :value="$riders[12]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away5" id="away5" value="{{ old('away5', $scores_away[4]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away5" id="away5" value="{{ old('away5', $scores_away[4] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -200,13 +200,13 @@
                             <input type="radio" id="home6" name="match" class="form-radio" title="Kapitan" value="6"
                             {{ old('match', $scores_captain) == '6' ? 'checked' : '' }} required>
                             <x-input-label for="home6" :value="$riders[5]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home6" id="home6" value="{{ old('home6', $scores_home[5]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home6" id="home6" value="{{ old('home6', $scores_home[5] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away6" name="match" class="form-radio" title="Kapitan" value="14"
                             {{ old('match', $scores_captain) == '14' ? 'checked' : '' }} required>
                             <x-input-label for="away6" :value="$riders[13]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away6" id="away6" value="{{ old('away6', $scores_away[5]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away6" id="away6" value="{{ old('away6', $scores_away[5] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -214,13 +214,13 @@
                             <input type="radio" id="home7" name="match" class="form-radio" title="Kapitan" value="7"
                             {{ old('match', $scores_captain) == '7' ? 'checked' : '' }} required>
                             <x-input-label for="home7" :value="$riders[6]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home7" id="home7" value="{{ old('home7', $scores_home[6]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home7" id="home7" value="{{ old('home7', $scores_home[6] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away7" name="match" class="form-radio" title="Kapitan" value="15"
                             {{ old('match', $scores_captain) == '15' ? 'checked' : '' }} required>
                             <x-input-label for="away7" :value="$riders[14]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away7" id="away7" value="{{ old('away7', $scores_away[6]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away7" id="away7" value="{{ old('away7', $scores_away[6] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                     <div class="flex items-center justify-center gap-6">
@@ -228,13 +228,13 @@
                             <input type="radio" id="home8" name="match" class="form-radio" title="Kapitan" value="8"
                             {{ old('match', $scores_captain) == '8' ? 'checked' : '' }} required>
                             <x-input-label for="home8" :value="$riders[7]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="home8" id="home8" value="{{ old('home8', $scores_home[7]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="home8" id="home8" value="{{ old('home8', $scores_home[7] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                         <div class="flex items-center justify-between" style="width: 200px;">
                             <input type="radio" id="away8" name="match" class="form-radio" title="Kapitan" value="16"
                             {{ old('match', $scores_captain) == '16' ? 'checked' : '' }} required>
                             <x-input-label for="away8" :value="$riders[15]" class="text-center ml-3"/>
-                            <x-text-input type="number" step="1" name="away8" id="away8" value="{{ old('away8', $scores_away[7]) }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
+                            <x-text-input type="number" step="1" name="away8" id="away8" value="{{ old('away8', $scores_away[7] ?? '') }}" required class="mt-2 text-center ml-3" style="width: 3rem;" />
                         </div>
                     </div>
                 </div>
@@ -253,11 +253,11 @@
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <x-input-label for="h_duel1" :value="$h2hs[0]" class="text-center"/>
                             <input type="radio" id="h_duel1" name="duel1" class="form-radio ml-3" value="home"
-                            {{ old('duel1', $h2h_picks[0]) == 'home' ? 'checked' : '' }} required>
+                            {{ old('duel1', $h2h_picks[0] ?? '') == 'home' ? 'checked' : '' }} required>
                         </div>
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <input type="radio" id="a_duel1" name="duel1" class="form-radio" value="away"
-                            {{ old('duel1', $h2h_picks[0]) == 'away' ? 'checked' : '' }} required>
+                            {{ old('duel1', $h2h_picks[0] ?? '') == 'away' ? 'checked' : '' }} required>
                             <x-input-label for="a_duel1" :value="$h2hs[5]" class="text-center  ml-3"/>
                         </div>
                     </div>
@@ -265,44 +265,44 @@
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <x-input-label for="h_duel2" :value="$h2hs[1]" class="text-center"/>
                             <input type="radio" id="h_duel2" name="duel2" class="form-radio ml-3" value="home"
-                            {{ old('duel2', $h2h_picks[1]) == 'home' ? 'checked' : '' }} required>
+                            {{ old('duel2', $h2h_picks[1] ?? '') == 'home' ? 'checked' : '' }} required>
                         </div>
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <input type="radio" id="a_duel2" name="duel2" class="form-radio" value="away"
-                            {{ old('duel2', $h2h_picks[1]) == 'away' ? 'checked' : '' }} required>
+                            {{ old('duel2', $h2h_picks[1] ?? '') == 'away' ? 'checked' : '' }} required>
                             <x-input-label for="a_duel2" :value="$h2hs[6]" class="text-center  ml-3"/>
                         </div>
                     </div><div class="flex items-center justify-center gap-6 mt-3">
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <x-input-label for="h_duel3" :value="$h2hs[2]" class="text-center"/>
                             <input type="radio" id="h_duel3" name="duel3" class="form-radio ml-3" value="home"
-                            {{ old('duel3', $h2h_picks[2]) == 'home' ? 'checked' : '' }} required>
+                            {{ old('duel3', $h2h_picks[2] ?? '') == 'home' ? 'checked' : '' }} required>
                         </div>
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <input type="radio" id="a_duel3" name="duel3" class="form-radio" value="away"
-                            {{ old('duel3', $h2h_picks[2]) == 'away' ? 'checked' : '' }} required>
+                            {{ old('duel3', $h2h_picks[2] ?? '') == 'away' ? 'checked' : '' }} required>
                             <x-input-label for="a_duel3" :value="$h2hs[7]" class="text-center  ml-3"/>
                         </div>
                     </div><div class="flex items-center justify-center gap-6 mt-3">
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <x-input-label for="h_duel4" :value="$h2hs[3]" class="text-center"/>
                             <input type="radio" id="h_duel4" name="duel4" class="form-radio ml-3" value="home"
-                            {{ old('duel4', $h2h_picks[3]) == 'home' ? 'checked' : '' }} required>
+                            {{ old('duel4', $h2h_picks[3] ?? '') == 'home' ? 'checked' : '' }} required>
                         </div>
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <input type="radio" id="a_duel4" name="duel4" class="form-radio" value="away"
-                            {{ old('duel4', $h2h_picks[3]) == 'away' ? 'checked' : '' }} required>
+                            {{ old('duel4', $h2h_picks[3] ?? '') == 'away' ? 'checked' : '' }} required>
                             <x-input-label for="a_duel4" :value="$h2hs[8]" class="text-center  ml-3"/>
                         </div>
                     </div><div class="flex items-center justify-center gap-6 mt-3">
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <x-input-label for="h_duel5" :value="$h2hs[4]" class="text-center"/>
                             <input type="radio" id="h_duel5" name="duel5" class="form-radio ml-3" value="home"
-                            {{ old('duel5', $h2h_picks[4]) == 'home' ? 'checked' : '' }} required>
+                            {{ old('duel5', $h2h_picks[4] ?? '') == 'home' ? 'checked' : '' }} required>
                         </div>
                         <div class="flex items-center justify-between" style="width: 120px;">
                             <input type="radio" id="a_duel5" name="duel5" class="form-radio" value="away"
-                            {{ old('duel5', $h2h_picks[4]) == 'away' ? 'checked' : '' }} required>
+                            {{ old('duel5', $h2h_picks[4] ?? '') == 'away' ? 'checked' : '' }} required>
                             <x-input-label for="a_duel5" :value="$h2hs[9]" class="text-center  ml-3"/>
                         </div>
                     </div>
