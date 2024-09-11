@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\WeeklyPickTemplate;
 use App\Models\WeeklyPickOutcome;
 use App\Models\WeeklyBet;
+use App\Models\WeeklyPick;
+use App\Models\Users;
+use App\Models\Bet;
+use App\Models\Head2Head;
+use App\Models\Result;
+use App\Models\Score;
+
 
 class WeeklyPickOutcomeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -40,6 +49,122 @@ class WeeklyPickOutcomeController extends Controller
     public function create()
     {
         //
+    }
+
+    /**
+     * Function for calculating points after setting outcomes
+     */
+
+    public function calc_points($weeklyPickTemplate, $result, $scores, $h2hs, $bets)
+    {
+        $userPicks = WeeklyPick::where('week', $weeklyPickTemplate->week)->get();
+
+        // obliczanie punktow dla danego gracza
+        foreach ($userPicks as $pick) {
+            // obliczenie punktow z wyniku
+            $points = 0;
+            // pobranie rekordu z wynikiem
+            $resultPick = Result::where("weekly_pick_id", $pick->id)->first();
+            if ($resultPick) {
+                // jesli trafi wynik
+                if ($resultPick->prediction_home == $result[0] && $resultPick->prediction_away == $result[1]) {
+                    $points = 50;
+                }
+                // jesli nie trafi wyniku
+                else {
+                    $points = 50;
+                    // predykcja gospodarza
+                    $points -= abs($resultPick->prediction_home - $result[0]) * 2;
+
+                    // predykcja goscia
+                    $points -= abs($resultPick->prediction_away - $result[1]) * 2;
+                }
+                
+            } 
+            // zapis punktow z wyniku
+            $resultPick->update(['points' => $points]);
+
+
+            // obliczanie punktow z wyniku driverow
+            $points = 0;
+            // pobranie rekordu z driverami
+            $scorePick = Score::where("weekly_pick_id", $pick->id)->first();
+            if ($scorePick) {
+                // pobranie predykcji gracza
+                $tableHome = json_decode($scorePick->home);
+                $tableAway = json_decode($scorePick->away);
+                $captain = $scorePick->selected_captain;
+
+                // przejscie przez wszystkie wyniki
+                foreach ($scores as $index => $score) {
+                    // lokalne punkty
+                    $points_ind = 0;
+
+                    // home
+                    if ($index < 8) {
+                        // jesli trafi punkty
+                        if ($tableHome[$index] == $score) {
+                            $points_ind = 5;
+                        // jesli nie trafi
+                        } else {
+                            $points_ind = 3 - abs(intval($tableHome[$index]) - intval($score));
+                        }
+                    // away
+                    } else {
+                        // jesli trafi punkty
+                        if ($tableAway[$index - 8] == $score) {
+                            $points_ind = 5;
+                        // jesli nie trafi
+                        } else {
+                            $points_ind = 3 - abs(intval($tableAway[$index - 8]) - intval($score));
+                        }
+                    }
+                    
+                    // czy kapitan
+                    if ($index == $captain) {
+                        $points_ind *= 2;
+                    }
+
+                    // sumowanie do kupy
+                    $points += $points_ind;
+                }
+            }
+            
+            // zapis punktow z driverow
+            $scorePick->update(['points' => $points]);
+
+
+            // obliczanie punktow z h2h
+            $points = 0;
+            
+            // pobranie rekordu z h2h
+            $h2hPick = Head2Head::where("weekly_pick_id", $pick->id)->first();
+            if ($h2hPick) {
+                // pobranie predykcji gracza
+                $picks = json_decode($h2hPick->picks);
+
+                // ile poprawnych
+                $correct_counter = 0;
+
+                // przejscie przez wszystkie wyniki
+                foreach ($picks as $index => $h2hpick) {
+                    if ($picks[$index] == $h2hs[$index]) {
+                        $correct_counter += 1;
+                        $points += 5;
+                    }
+                }
+
+                // za trafienie 5
+                if ($correct_counter == 5) {
+                    $points += 5;
+                }
+            }
+
+            // zapis punktow z h2h
+            $h2hPick->update(['points' => $points]);
+
+            //$pick->update(['points' => $points]);
+        }
     }
 
     /**
@@ -123,7 +248,8 @@ class WeeklyPickOutcomeController extends Controller
             }
         }
 
-
+        // obliczenie i rozdanie punktow
+        $this->calc_points($weeklyPickTemplate, $result, $scores, $h2hs, $bets);
 
         // zapis albo update bazy
         $weeklyPickOutcome = WeeklyPickOutcome::updateOrCreate(
@@ -219,4 +345,7 @@ class WeeklyPickOutcomeController extends Controller
 
         return redirect()->route('weekly-pick-outcome.index')->with('success', 'Usunięto pomyślnie.');
     }
+
+
+    
 }

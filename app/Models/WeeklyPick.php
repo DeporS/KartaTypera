@@ -12,6 +12,7 @@ class WeeklyPick extends Model
     protected $fillable = [
         'user_id',
         'week',
+        'points',
     ];
 
     public function user()

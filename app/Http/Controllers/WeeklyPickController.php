@@ -178,10 +178,9 @@ class WeeklyPickController extends Controller
         ],
         [
             'bets' => json_encode(collect(range(1,8))->map(function ($i) use ($request){
-                return $request->input('bet' . $i);;
+                return $request->input('bet' . $i);
             })),
             'bet_amount' => $request->input('bet_amount'),
-            'win_amount' => $request->input('win'),
         ]);
     }
 }
