@@ -50,4 +50,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(WeeklyPick::class);
     }
+
+    public function showcases()
+    {
+        return $this->hasMany(Showcase::class);
+    }
 }

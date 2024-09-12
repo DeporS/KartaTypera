@@ -5,6 +5,7 @@ use App\Http\Middleware\CheckAdmin;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WeeklyPickController;
 use App\Http\Controllers\RankingController;
+use App\Http\Controllers\ShowcaseController;
 use App\Http\Controllers\ProfilePageController;
 use App\Http\Controllers\WeeklyPickPanelController;
 use App\Http\Controllers\WeeklyPickOutcomeController;
@@ -20,6 +21,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource("weekly-pick-panel", WeeklyPickPanelController::class);
 
     Route::resource("weekly-pick-outcome", WeeklyPickOutcomeController::class);
+
+    Route::resource("showcase", ShowcaseController::class);
 });
 
 
@@ -35,6 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/ranking', [RankingController::class, 'show'])->name('dashboard');
 
     Route::resource("profile-page", ProfilePageController::class);
+
+    
 });
 
 require __DIR__.'/auth.php';

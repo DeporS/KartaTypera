@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Showcase;
 
 class ProfilePageController extends Controller
 {
@@ -38,9 +39,21 @@ class ProfilePageController extends Controller
     {
         $user = User::where('name', $name)->first();
 
+        $trophies = Showcase::where('user_id', $user->id)->get();
+
+        $trophy_names = null;
+        $trophy_paths = null;
+
+        foreach ($trophies as $index => $trophy) {
+            $trophy_names[] = $trophy->name;
+            $trophy_paths[] = $trophy->path;
+        }
+
 
         return view('profilePage', [
             'user' => $user,
+            'trophy_names' => $trophy_names,
+            'trophy_paths' => $trophy_paths,
         ]);
     }
 
