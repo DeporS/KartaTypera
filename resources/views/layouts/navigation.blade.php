@@ -116,7 +116,20 @@
             </x-responsive-nav-link>
         </div>
 
+        <!-- admin -->
+        @if (Auth::user()->role === 'admin')
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('weekly-pick-panel.index')" :active="request()->routeIs('weekly-pick-panel.index')">
+                    {{ __('Dodaj Kartę') }}
+                </x-responsive-nav-link>
+            </div>
 
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('weekly-pick-outcome.index')" :active="request()->routeIs('weekly-pick-outcome.index')">
+                    {{ __('Wyniki kart') }}
+                </x-responsive-nav-link>
+            </div>
+        @endif
 
 
 

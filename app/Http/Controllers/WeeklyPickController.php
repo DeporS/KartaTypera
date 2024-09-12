@@ -188,5 +188,7 @@ class WeeklyPickController extends Controller
             })),
             'bet_amount' => $request->input('bet_amount'),
         ]);
+
+        return redirect()->route('dashboard')->with('success', 'Karta dodana pomyślnie.');
     }
 }

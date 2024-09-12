@@ -4,6 +4,8 @@ use App\Http\Middleware\CheckAdmin;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WeeklyPickController;
+use App\Http\Controllers\RankingController;
+use App\Http\Controllers\ProfilePageController;
 use App\Http\Controllers\WeeklyPickPanelController;
 use App\Http\Controllers\WeeklyPickOutcomeController;
 use Illuminate\Support\Facades\Route;
@@ -11,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth/login');
 });
-
-Route::get('/ranking', function () {
-    return view('ranking');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 // admin
@@ -33,6 +31,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/weekly-pick', [WeeklyPickController::class, 'show'])->name('weekly-pick.show');
     Route::post('/weekly-pick', [WeeklyPickController::class, 'store'])->name('weekly-pick.store');
+
+    Route::get('/ranking', [RankingController::class, 'show'])->name('dashboard');
+
+    Route::resource("profile-page", ProfilePageController::class);
 });
 
 require __DIR__.'/auth.php';

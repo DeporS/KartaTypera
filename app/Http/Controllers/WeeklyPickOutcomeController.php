@@ -396,6 +396,24 @@ class WeeklyPickOutcomeController extends Controller
      */
     public function destroy(string $week)
     {
+        $userPicks = WeeklyPick::where('week', $week)->get();
+
+        // obliczanie punktow dla danego gracza
+        foreach ($userPicks as $pick) {
+
+            $user = User::where("id", $pick->user_id)->first();
+           
+            // odjecie punktow podczas usuwania wynikow
+            $userPoints = $user->points - $pick->points;
+
+            $user->update(['points' => $userPoints]);
+
+            $pick->update(['points' => 0]);
+        }
+
+
+
+
         WeeklyPickOutcome::where('week', $week)->delete();
 
         return redirect()->route('weekly-pick-outcome.index')->with('success', 'Usunięto pomyślnie.');

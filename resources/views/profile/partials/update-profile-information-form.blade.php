@@ -51,6 +51,11 @@
                         @endif
                     </div>
 
+                    <div>
+                        <x-input-label for="description" :value="__('Opis')" />
+                        <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" :value="old('email', $user->description)"/>
+                    </div>
+
                     <div class="flex items-center gap-4">
                         <x-primary-button>{{ __('Zapisz') }}</x-primary-button>
 
