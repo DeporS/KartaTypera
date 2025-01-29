@@ -5,3 +5,4 @@ A web application built with Laravel to track users' progress in speedway-relate
 - **Points Calculation**: Automatically calculate points based on user input.
 - **User Rankings**: Generate and display user rankings dynamically.
 - **Trophy Showcase**: A dedicated gallery to showcase user achievements and trophies.
+- **User System**: Users can log in, manage their accounts, and add friends.
